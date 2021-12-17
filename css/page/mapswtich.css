@@ -1,0 +1,81 @@
+.container {
+	width: 100%;
+	padding: 0;
+}
+.container .item{
+	width: 100%;
+	height: auto;
+}
+.container .item .title{
+	font-family: "微软雅黑";
+	font-size: 15px;
+	color: #323232;
+	padding-left: 16px;
+	line-height: 36px;
+	height: 36px;
+	background: #EEEEEE;
+}
+.container .item .content{
+	width: 100%;
+	height: auto;
+}
+.container .item .content .layerlist{
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+	padding: 16px 36px;
+}
+.container .item .content .layerlist-item{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	font-family: "微软雅黑";
+	font-size: 13px;
+	color: #757575;
+}
+.container .item .content .layerlist-item .img{
+	border: 1px solid #EEEEEE;
+}
+.container .item .content .layerlist-item .img-focus{
+	border: 1px solid #3296FA;
+}
+.container .item .content .layerlist-item-focus{
+	color: #3296FA;
+ }
+ .container .item .content .worklist{
+	 width: 100%;
+ }
+.container .item .content .worklist .worklist-item{
+	/* display: flex; */
+	flex-flow: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 36px;
+	padding: 3px 20px;
+	font-family: "微软雅黑";
+	font-size: 13px;
+	color: #000000;
+	border-bottom: 1px solid #EEEEEE;
+}
+.container .item .content .worklist .worklist-item .chockboxx{
+	display: inline-block;
+	position: fixed;
+	right: 20px;
+	margin-top: 8px;
+}
+.container .item .content .worklist .worklist-item input{
+	border: 1px solid #FF0000;
+}
+
+.layui-unselect.layui-form-switch{
+	margin-top: 0;
+    margin-right: 8px;
+
+}
+.layui-form-onswitch {
+    border-color: #61aefb;
+    background-color: #61aefb;
+}
+.layui-form-switch em{
+	top: -2px;
+}

@@ -1,0 +1,11 @@
+{
+   "layers":[
+    {"img":"../img/zyqy.png","od":1,"title":"企业图层","name":"企业图层","checked":false},
+    {"img":"../img/qycg.png","od":2,"title":"风险源企业","id":"sx_fxy","name":"风险源企业","checked":false},
+    {"img":"../img/qyfjq.png","od":2,"title":"重金属排放企业","id":"sx_zdqy","name":"重金属排放企业","checked":false},
+    {"img":"../img/qyjtsn.png","od":1,"title":"其他图层","name":"其他图层","checked":false},
+    {"img":"../img/qyjd.png","od":2,"title":"化工工业园区","id":"sx_gyyq","name":"化工工业园区","checked":false},
+    {"img":"../img/zyqy.png","od":2,"title":"尾矿","id":"sx_wk","name":"尾矿","checked":false},
+    {"img":"../img/zyxl.png","od":2,"title":"危化品运输线路","id":"sx_whpyslx","name":"危化品运输线路","checked":false}
+   ]
+}

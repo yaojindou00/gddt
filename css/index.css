@@ -1,0 +1,159 @@
+
+ html,
+body {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+
+}
+#mapSwitch{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #323232;
+	    border: none;
+}
+.amap-control.amap-geolocation{
+	left: 15px;
+	right: auto!important;
+}
+.amap-ui-control-container.amap-ui-mobile.amap-ui-retina.amap-ui-control-position-rt.amap-ui-control-theme-light{
+	display: none!important;
+	opacity: 0!important;
+}
+.amap-ui-control-container.amap-ui-control-position-rt.amap-ui-control-theme-light{
+		display: none!important;
+	 opacity: 0!important;
+}
+.esri-widget__table {
+    color: #323232;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+}
+.esri-widget__table tr:nth-child(odd) {
+    background-color: rgba(7,127,245,0.1);
+}
+
+.esri-widget__table tr th {
+    width: 50%;
+    text-align: left;
+    border-right: 3px solid rgba(0,0,0,0.05);
+}
+.esri-widget__table tr td, .esri-widget__table tr th {
+    padding: 0.5em 0.7em;
+    word-break: break-word;
+    vertical-align: top;
+    font-size: 12px;
+    font-weight: 400;
+}
+.esri-popup__header-title {
+    font-size: 14px;
+    padding: 3px 15px;
+    margin: 0 auto 0 0;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;   
+        
+       
+}
+.amap-info-close {
+    right: 11px;
+    top: 15px;
+    
+    font-size: 22px;
+}
+.esri-feature__fields.esri-feature__content-element{
+	    padding: 0 10px 15px 10px;
+}
+.amap-info-content {
+
+    padding: 10px;
+    padding-bottom: 50px;
+    
+}
+.esri-widget__table tr th{
+	width: 30%;
+}
+.esri-widget__table tr td {
+    width: 70%;
+}
+
+.amap-info0{
+	  position: relative!important;
+    
+    left: 0px!important;
+    top: auto!important;
+    max-width: 500px;
+}
+.esri-feature__fields.esri-feature__content-element{
+	    height: 331px;
+    overflow: auto;
+}
+
+.amap-logo{
+    display: none!important;
+    
+}
+.amap-copyright {
+    opacity:0;
+}
+.amap-geolocation-con{
+	left: 15px!important;
+	bottom: 15px!important;
+}
+.amap-geolocation-con .amap-geo{
+    background: url(../img/location.png) 0px 0px no-repeat;
+    background-size: 44px 43px;
+    width: 44px;
+    height: 44px;
+     border: none;
+}
+.amap-geolocation-con.amap-locate-loading .amap-geo {
+	background: #fff url(https://webapi.amap.com/theme/v1.3/loading.gif) 50% 50% no-repeat;
+	background-size: 15px 15px;
+	border: none;
+}
+.tool-item-right{
+	position: absolute;
+    top: 20px;
+    right: 15px;
+}
+#rightIfram{
+	height: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 100px;
+    right: 0;
+    
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        background-color: white;
+            z-index: 10000;
+            display: none;
+}
+#mapSwitch{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #323232;
+	    border: none;
+}

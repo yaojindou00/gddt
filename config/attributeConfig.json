@@ -1,0 +1,43 @@
+{
+    "sx_fxy":{
+        "name":"96家风险源企业",
+        "titleField": "name",
+        "fileds":[
+            {"field": "name","alias": "名称"},
+            {"field": "city","alias": "城市"},
+            {"field": "address","alias": "地址"}
+           ]
+    },
+    "sx_gyyq":{
+        "name":"化工工业园区",
+        "titleField": "address",
+        "fileds":[
+           
+            {"field": "city","alias": "城市"},
+            {"field": "address","alias": "地址"}
+           ]
+    },
+    "sx_wk":{
+        "name":"尾矿",
+        "titleField": "name",
+        "fileds":[
+            {"field": "name","alias": "名称"},
+            {"field": "city","alias": "城市"},
+            {"field": "type","alias": "类型"},
+            {"field": "level","alias": "等级"},
+            {"field": "onemineral","alias": "矿1"},
+            {"field": "twomineral","alias": "矿2"},
+            {"field": "question1","alias": "问题"}
+           ]
+    },
+    "sx_szqy":{
+        "name":"重金属排放企业",
+        "titleField": "name",
+        "fileds":[
+            {"field": "name","alias": "名称"},
+            {"field": "city","alias": "城市"},
+            {"field": "type","alias": "类型"},
+            {"field": "tradename","alias": "产业名称"}
+           ]
+    }
+}

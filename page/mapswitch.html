@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+	<title></title>	
+		<link rel="stylesheet" type="text/css" href="../css/page/mapswtich.css"/>	
+	</head>
+	<body>
+		<div class="container" style="display: none;">
+		<div class="item">
+			<div class="title" >底图</div>
+			<div class="content">
+				<div class="layerlist">
+					<div :class="basemap.checked?'layerlist-item layerlist-item-focus':'layerlist-item'" v-for="basemap in basemaps" @click="basemapClick(basemap,event)">
+						<img :class="basemap.checked?'img-focus':'img'" v-bind:src="basemap.icon" width="78" height="49" />
+						<span class="layername">{{ basemap.name }}</span>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		<div class="item">
+		
+			<div class="title" style="display: flex;flex-direction: row;justify-content: space-between;" @click="toggleLayerListPanel(event)">
+				<span>图层</span>
+				<span style="color: #61aefb;margin-right: 15px;" @click="resetLayerClick()">清除</span>
+			</div>
+			<div class="content">
+				<div v-if="layers.length>0" class="worklist">
+					<div v-for="layer in layers" @click="layerItemClick(layer,event)">
+						<div class="worklist-item" v-if="layer.od==1">
+							<img :src="layer.img" style="width: 22px;border-radius: 8px;display: inline-block;
+							position: relative;top: 7px;margin-right: 4px;">
+							<span>{{layer.title}}</span>
+						</div>
+						<div class="worklist-item" v-else="layer.od==2">
+							<img :src="layer.img" style="margin-left: 30px;width: 22px;border-radius: 8px;display: inline-block;
+							position: relative;top: 7px;margin-right: 4px;">
+							<span>{{layer.title}}</span>
+						</div>
+					</div>
+				</div>
+				<div v-if="layers.length==0" style="margin-left: 16px;margin-top: 16px;" >暂无图层</div>
+			</div>
+			
+		</div>
+	</div>
+	<script src="../js/jquery.min.js"></script>
+    <script src="../js/vue.min.js"></script>
+	<script src="../js/page/mapswitch.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
