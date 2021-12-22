@@ -10,7 +10,7 @@ inEvent();
                 z = "L" + z.toString(10).padStart(2,'0');
                 x = "C" + x.toString(16).padStart(8,'0');
                 y = "R" + y.toString(16).padStart(8,'0');
-                return '/Layers/_alllayers/' + z + '/' + y + '/' + x + '.png';
+                return 'https://yaojindou00.github.io/gddt/Layers/_alllayers/' + z + '/' + y + '/' + x + '.png';
         },
         zIndex: 100
 })
