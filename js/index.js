@@ -25,12 +25,15 @@ function initMap(){
 	map = new AMap.Map('container', {
             zoom: 6.5,
             zooms:[6,20],
-         center: [108.94703112653409,35.25946520963723],
+            center: [108.94703112653409,35.25946520963723],
               defaultCursor:"auto",
               showIndoorMap:false,
               expandZoomRange:true
 	});
-var geolocation = new BMap.Geolocation({
+	setInterval(function(){
+			
+		
+		var geolocation = new BMap.Geolocation({
 			maximumAge: 10 , // 清除缓存
 			enableHighAccuracy:true
 		});  
@@ -46,6 +49,7 @@ var geolocation = new BMap.Geolocation({
 			    });
 			   map.setZoomAndCenter(10, lnglat)
 			}})
+		},5000)
 //	AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {  
 //	    map.addControl(new BasicControl.LayerSwitcher({}));
 //	}); 
