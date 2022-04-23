@@ -15,7 +15,7 @@ inEvent();
 //      zIndex: 100
 //})
 //googleSWLayer.setMap(this.map);
-
+var maker=null
 //初始化地图
 function initMap(){
 
@@ -41,13 +41,14 @@ function initMap(){
 		    geolocation.enableSDKLocation();
 		geolocation.getCurrentPosition(function (r) {  
 			if (this.getStatus() == BMAP_STATUS_SUCCESS) {  
-				console.log(r.point)
-				let lnglat= bd09togcj02(r.point.lng, r.point.lat)
-			   var tempCircle = new AMap.Marker({
+			let lnglat= bd09togcj02(r.point.lng, r.point.lat);
+				if(maker){
+					map.remove(maker)
+				}
+			    maker = new AMap.Marker({
 					position: new AMap.LngLat(lnglat[0], lnglat[1]),  // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
 				    map: map
 			    });
-			   map.setZoomAndCenter(10, lnglat)
 			}})
 		},5000)
 //	AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {  
