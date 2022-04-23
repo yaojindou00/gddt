@@ -218,6 +218,7 @@
 	};
 	coordinateTransform.wgs84ToGd=wgs84ToGd;
 	coordinateTransform.gdToWgs84=gdToWgs84;
+	window.bd09togcj02=bd09togcj02;
 	window.coordinateTransform=coordinateTransform;
 	return coordinateTransform;
 });

@@ -5,19 +5,23 @@ var atrcount='<div class="esri-feature__fields esri-feature__content-element">'
 initMap();
 inEvent();
 
-  const googleSWLayer = new AMap.TileLayer({
-        getTileUrl: function(x, y, z) {
-                z = "L" + z.toString(10).padStart(2,'0');
-                x = "C" + x.toString(16).padStart(8,'0');
-                y = "R" + y.toString(16).padStart(8,'0');
-                return '/gddt/img/tile/' + z + '/' + y + '/' + x + '.png';
-        },
-        zIndex: 100
-})
-googleSWLayer.setMap(this.map);
+//const googleSWLayer = new AMap.TileLayer({
+//      getTileUrl: function(x, y, z) {
+//              z = "L" + z.toString(10).padStart(2,'0');
+//              x = "C" + x.toString(16).padStart(8,'0');
+//              y = "R" + y.toString(16).padStart(8,'0');
+//              return '/gddt/img/tile/' + z + '/' + y + '/' + x + '.png';
+//      },
+//      zIndex: 100
+//})
+//googleSWLayer.setMap(this.map);
 
 //初始化地图
 function initMap(){
+
+		
+		
+	
 	map = new AMap.Map('container', {
             zoom: 6.5,
             zooms:[6,20],
@@ -26,41 +30,56 @@ function initMap(){
               showIndoorMap:false,
               expandZoomRange:true
 	});
-
-	AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {  
-	    map.addControl(new BasicControl.LayerSwitcher({}));
-	}); 
-
-	//定位
-	map.plugin('AMap.Geolocation', function () {
-		geolocation = new AMap.Geolocation({
-		    enableHighAccuracy: true, // 是否使用高精度定位，默认:true
-		    noIpLocate:3,  // 是否禁止使用IP定位,默认值为0,可选值 0~3; 0可以使用IP定位,1手机设备禁止使用IP定位,2PC上禁止使用IP定位,3所有设备禁止使用IP定位
-		   noGeoLocation:0,
-		   timeout: 10000,           // 超过10秒后停止定位，默认：无穷大
-		    maximumAge: 0,            // 定位结果缓存0毫秒，默认：0
-		    convert: true,            // 自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-		    showButton: true,         // 显示定位按钮，默认：true
-		    buttonPosition: 'LB',     // 定位按钮停靠位置，默认：'LB'，左下角
-		    buttonOffset: new AMap.Pixel(10, 20), // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-		    showMarker: true,         // 定位成功后在定位到的位置显示点标记，默认：true
-		    showCircle: true,         // 定位成功后用圆圈表示定位精度范围，默认：true
-		    panToLocation: true,      // 定位成功后将定位到的位置作为地图中心点，默认：true
-		    zoomToAccuracy:true       // 定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-		 
-	    });
-	    map.addControl(geolocation);
-	      // 获取当前位置信息
-        geolocation.getCurrentPosition();
-        // 监听获取位置信息成功的回调函数
-        AMap.event.addListener(geolocation, 'complete', function(res){
-        	
-        });
-        // 监听获取位置信息错误的回调函数
-        AMap.event.addListener(geolocation, 'error', function(d){});
-
-	    
-	});
+var geolocation = new BMap.Geolocation({
+			maximumAge: 10 , // 清除缓存
+			enableHighAccuracy:true
+		});  
+		  // 开启SDK辅助定位
+		    geolocation.enableSDKLocation();
+		geolocation.getCurrentPosition(function (r) {  
+			if (this.getStatus() == BMAP_STATUS_SUCCESS) {  
+				console.log(r.point)
+				let lnglat= bd09togcj02(r.point.lng, r.point.lat)
+			   var tempCircle = new AMap.Marker({
+					position: new AMap.LngLat(lnglat[0], lnglat[1]),  // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+				    map: map
+			    });
+			   map.setZoomAndCenter(10, lnglat)
+			}})
+//	AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {  
+//	    map.addControl(new BasicControl.LayerSwitcher({}));
+//	}); 
+//
+//	//定位
+//	map.plugin('AMap.Geolocation', function () {
+//		geolocation = new AMap.Geolocation({
+//		    enableHighAccuracy: true, // 是否使用高精度定位，默认:true
+//		    noIpLocate:0,  // 是否禁止使用IP定位,默认值为0,可选值 0~3; 0可以使用IP定位,1手机设备禁止使用IP定位,2PC上禁止使用IP定位,3所有设备禁止使用IP定位
+//		   noGeoLocation:0,
+//		   timeout: 10000,           // 超过10秒后停止定位，默认：无穷大
+//		    maximumAge: 0,            // 定位结果缓存0毫秒，默认：0
+//		    convert: true,            // 自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+//		    showButton: true,         // 显示定位按钮，默认：true
+//		    buttonPosition: 'LB',     // 定位按钮停靠位置，默认：'LB'，左下角
+//		    buttonOffset: new AMap.Pixel(10, 20), // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+//		    showMarker: true,         // 定位成功后在定位到的位置显示点标记，默认：true
+//		    showCircle: true,         // 定位成功后用圆圈表示定位精度范围，默认：true
+//		    panToLocation: true,      // 定位成功后将定位到的位置作为地图中心点，默认：true
+//		    zoomToAccuracy:true       // 定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+//		 
+//	    });
+//	    map.addControl(geolocation);
+//	      // 获取当前位置信息
+//      geolocation.getCurrentPosition();
+//      // 监听获取位置信息成功的回调函数
+//      AMap.event.addListener(geolocation, 'complete', function(res){
+//      	console.log(res)
+//      });
+//      // 监听获取位置信息错误的回调函数
+//      AMap.event.addListener(geolocation, 'error', function(d){console.log(d)});
+//
+//	    
+//	});
 };
 //$.getJSON("../config/attributeConfig.json", function (data){
 //	conent=data;
